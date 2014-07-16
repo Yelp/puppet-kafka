@@ -44,8 +44,11 @@
 #
 # $auto_create_topics_enable            - If autocreation of topics is allowed.  Default: false
 #
-# $default_replication_factor           - The default replication factor for automatically created topics  Default: size(keys($brokers))
+# $num_partitions                       - The default number of partitions per topic.
+#                                         Default: size($log_dirs)
 #
+# $default_replication_factor           - The default replication factor for automatically created topics.
+#                                         Default: size(keys($brokers))
 #
 # $replica_lag_time_max_ms              - If a follower hasn't sent any fetch requests for this window
 #                                         of time, the leader will remove the follower from ISR.
@@ -135,6 +138,7 @@ class kafka::server(
 
     $auto_create_topics_enable           = $kafka::defaults::auto_create_topics_enable,
 
+    $num_partitions                      = size($log_dirs),
     $default_replication_factor          = size(keys($brokers)),
     $replica_lag_time_max_ms             = $kafka::defaults::replica_lag_time_max_ms,
     $replica_lag_max_messages            = $kafka::defaults::replica_lag_max_messages,
