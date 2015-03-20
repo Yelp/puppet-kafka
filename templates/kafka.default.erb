@@ -1,0 +1,19 @@
+# Note: This file is managed by Puppet.
+
+ENABLED=<%= @enable ? 'yes' : 'no' %>
+
+<% if @java_home -%>
+JAVA_HOME="<%= @java_home %>"
+<% end -%>
+<% if @heap_opts -%>
+KAFKA_HEAP_OPTS="<%= @heap_opts %>"
+<% end -%>
+<% if @gc_log_enabled -%>
+GC_LOG_ENABLED=<%= @gc_log_enabled ? 'true' : 'false' %>
+<% end -%>
+<% if @jmx_port -%>
+JMX_PORT=<%= @jmx_port %>
+<% end -%>
+<% if @classpath -%>
+CLASSPATH="<%= @classpath %>"
+<% end -%>

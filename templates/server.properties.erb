@@ -1,0 +1,9 @@
+# Note: This file is managed by Puppet.
+
+broker.id=<%= @broker_id %>
+log.dirs=<%= Array(@log_dirs).join(',') %>
+zookeeper.connect=<%= @zookeeper_connect %>
+
+<% @server_properties.keys.sort.each do |key| -%>
+<%= key %>=<%= @server_properties[key] %>
+<% end -%>
