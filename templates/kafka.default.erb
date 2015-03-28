@@ -17,3 +17,6 @@ JMX_PORT=<%= @jmx_port %>
 <% if @classpath -%>
 CLASSPATH="<%= @classpath %>"
 <% end -%>
+<% if @kafka_log_directory %>
+LOG_DIR=<%= @kafka_log_directory %>
+<% end -%>

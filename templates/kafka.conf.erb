@@ -27,15 +27,16 @@ script
     GC_LOG_ENABLED=
     JMX_PORT=
     CLASSPATH=
+    LOG_DIR=
 
     if [ -f /etc/default/kafka ]; then
         . /etc/default/kafka
     fi
 
-    export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH
+    export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH LOG_DIR
 
     # kafka-server-start fails to export KAFKA_LOG4J_OPTS
-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
+    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:<%= @kafka_log4j_config %>"
 
     exec sudo -u kafka -g kafka /usr/bin/kafka-server-start /etc/kafka/server.properties
 

@@ -5,7 +5,7 @@ class kafka::server::config {
     owner  => 'root',
     group  => 'root',
     mode   => '0444',
-    source => 'puppet:///modules/kafka/kafka.conf',
+    content => template('kafka/kafka.conf.erb'),
   }
 
   file { '/etc/default/kafka':
@@ -22,14 +22,6 @@ class kafka::server::config {
     group  => 'root',
     mode   => '0444',
     content => template('kafka/server.properties.erb'),
-  }
-
-  file { '/etc/kafka/log4j.properties':
-    ensure => 'file',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0444',
-    content => template('kafka/log4j.properties.erb'),
   }
 
   file { $kafka::server::log_dirs:
