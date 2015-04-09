@@ -18,5 +18,6 @@ class kafka::server::params {
   $classpath                           = undef
   $kafka_log_directory                 = '/var/log/kafka'
   $kafka_log4j_config                  = '/etc/kafka/log4j.properties'
+  $jvm_performance_opts                = undef
 
 }

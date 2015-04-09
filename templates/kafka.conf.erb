@@ -28,12 +28,13 @@ script
     JMX_PORT=
     CLASSPATH=
     LOG_DIR=
+    KAFKA_JVM_PERFORMANCE_OPTS=
 
     if [ -f /etc/default/kafka ]; then
         . /etc/default/kafka
     fi
 
-    export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH LOG_DIR
+    export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH LOG_DIR KAFKA_JVM_PERFORMANCE_OPTS
 
     # kafka-server-start fails to export KAFKA_LOG4J_OPTS
     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:<%= @kafka_log4j_config %>"

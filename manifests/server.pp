@@ -17,7 +17,8 @@ class kafka::server(
   $jmx_port                            = $kafka::server::params::jmx_port,
   $classpath                           = $kafka::server::params::classpath,
   $kafka_log_directory                 = $kafka::server::params::kafka_log_directory,
-  $kafka_log4j_config                  = $kafka::server::params::kafka_log4j_config
+  $kafka_log4j_config                  = $kafka::server::params::kafka_log4j_config,
+  $jvm_performance_opts                = $kafka::server::params::jvm_performance_opts,
 
 ) inherits kafka::server::params {
 
