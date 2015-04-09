@@ -21,5 +21,5 @@ CLASSPATH="<%= @classpath %>"
 LOG_DIR=<%= @kafka_log_directory %>
 <% end -%>
 <% if @jvm_performance_opts %>
-KAFKA_JVM_PERFORMANCE_OPTS=<%= @jvm_performance_opts %>
+KAFKA_JVM_PERFORMANCE_OPTS="<%= @jvm_performance_opts %>"
 <% end -%>
