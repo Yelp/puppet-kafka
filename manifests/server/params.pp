@@ -3,21 +3,21 @@ class kafka::server::params {
   $enable                              = true
 
   # Essential Kafka configuration
-  $broker_id                           = undef
+  $broker_id                           = false
   $log_dirs                            = ['/var/spool/kafka']
-  $zookeeper_connect                   = undef
+  $zookeeper_connect                   = false
 
   # Other Kafka configuration
   $server_properties                   = {}
 
   # Operational configuration
-  $java_home                           = undef
-  $heap_opts                           = undef
-  $gc_log_enabled                      = undef
+  $java_home                           = false
+  $heap_opts                           = false
+  $gc_log_enabled                      = false
   $jmx_port                            = 9999
-  $classpath                           = undef
+  $classpath                           = false
   $kafka_log_directory                 = '/var/log/kafka'
   $kafka_log4j_config                  = '/etc/kafka/log4j.properties'
-  $jvm_performance_opts                = undef
+  $jvm_performance_opts                = false
 
 }
