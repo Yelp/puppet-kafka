@@ -20,6 +20,6 @@ CLASSPATH="<%= scope.lookupvar('kafka::server::classpath') %>"
 <% if scope.lookupvar('kafka::server::kafka_log_directory') %>
 LOG_DIR=<%= scope.lookupvar('kafka::server::kafka_log_directory') %>
 <% end -%>
-<% if scope.lookupvar('kafka::server::jvm_performance_opts %>
-KAFKA_JVM_PERFORMANCE_OPTS="<%= scope.lookupvar('kafka::server::jvm_performance_opts %>"
+<% if scope.lookupvar('kafka::server::jvm_performance_opts') %>
+KAFKA_JVM_PERFORMANCE_OPTS="<%= scope.lookupvar('kafka::server::jvm_performance_opts') %>"
 <% end -%>
