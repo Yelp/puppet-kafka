@@ -1,25 +1,25 @@
 # Note: This file is managed by Puppet.
 
-ENABLED=<%= @enable ? 'yes' : 'no' %>
+ENABLED=<%= scope.lookupvar('kafka::server::enable') ? 'yes' : 'no' %>
 
-<% if @java_home -%>
-JAVA_HOME="<%= @java_home %>"
+<% if scope.lookupvar('kafka::server::java_home') -%>
+JAVA_HOME="<%= scope.lookupvar('kafka::server::java_home') %>"
 <% end -%>
-<% if @heap_opts -%>
-KAFKA_HEAP_OPTS="<%= @heap_opts %>"
+<% if scope.lookupvar('kafka::server::heap_opts') -%>
+KAFKA_HEAP_OPTS="<%= scope.lookupvar('kafka::server::heap_opts') %>"
 <% end -%>
-<% if @gc_log_enabled -%>
-GC_LOG_ENABLED=<%= @gc_log_enabled ? 'true' : 'false' %>
+<% if scope.lookupvar('kafka::server::gc_log_enabled') -%>
+GC_LOG_ENABLED=<%= scope.lookupvar('kafka::server::gc_log_enabled') ? 'true' : 'false' %>
 <% end -%>
-<% if @jmx_port -%>
-JMX_PORT=<%= @jmx_port %>
+<% if scope.lookupvar('kafka::server::jmx_port') -%>
+JMX_PORT=<%= scope.lookupvar('kafka::server::jmx_port') %>
 <% end -%>
-<% if @classpath -%>
-CLASSPATH="<%= @classpath %>"
+<% if scope.lookupvar('kafka::server::classpath') -%>
+CLASSPATH="<%= scope.lookupvar('kafka::server::classpath') %>"
 <% end -%>
-<% if @kafka_log_directory %>
-LOG_DIR=<%= @kafka_log_directory %>
+<% if scope.lookupvar('kafka::server::kafka_log_directory') %>
+LOG_DIR=<%= scope.lookupvar('kafka::server::kafka_log_directory') %>
 <% end -%>
-<% if @jvm_performance_opts %>
-KAFKA_JVM_PERFORMANCE_OPTS="<%= @jvm_performance_opts %>"
+<% if scope.lookupvar('kafka::server::jvm_performance_opts %>
+KAFKA_JVM_PERFORMANCE_OPTS="<%= scope.lookupvar('kafka::server::jvm_performance_opts %>"
 <% end -%>

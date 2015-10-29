@@ -1,9 +1,10 @@
 # Note: This file is managed by Puppet.
 
-broker.id=<%= @broker_id %>
-log.dirs=<%= Array(@log_dirs).join(',') %>
-zookeeper.connect=<%= @zookeeper_connect %>
+broker.id=<%= scope.lookupvar('kafka::server::broker_id') %>
+log.dirs=<%= Array(scope.lookupvar('kafka::server::log_dirs')).join(',') %>
+zookeeper.connect=<%= scope.lookupvar('kafka::server::zookeeper_connect') %>
 
-<% @server_properties.keys.sort.each do |key| -%>
-<%= key %>=<%= @server_properties[key] %>
+<% server_properties = scope.lookupvar('kafka::server::server_properties')
+   server_properties.keys.sort.each do |key| -%>
+<%= key %>=<%= server_properties[key] %>
 <% end -%>

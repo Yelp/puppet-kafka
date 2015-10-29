@@ -39,7 +39,7 @@ script
     export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH LOG_DIR KAFKA_JVM_PERFORMANCE_OPTS
 
     # kafka-server-start fails to export KAFKA_LOG4J_OPTS
-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:<%= @kafka_log4j_config %>"
+    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:<%= scope.lookupvar('kafka::server::kafka_log4j_config') %>"
 
     exec sudo -u kafka -g kafka /usr/bin/kafka-server-start /etc/kafka/server.properties
 
