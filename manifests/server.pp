@@ -13,6 +13,7 @@ class kafka::server(
   # Operational configuration
   $java_home                           = $kafka::server::params::java_home,
   $heap_opts                           = $kafka::server::params::heap_opts,
+  $kill_timeout_seconds                = $kafka::server::params::kill_timeout_seconds,
   $gc_log_enabled                      = $kafka::server::params::gc_log_enabled,
   $jmx_port                            = $kafka::server::params::jmx_port,
   $classpath                           = $kafka::server::params::classpath,
