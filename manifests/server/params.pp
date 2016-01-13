@@ -13,6 +13,7 @@ class kafka::server::params {
   # Operational configuration
   $java_home                           = false
   $heap_opts                           = false
+  $kill_timeout_seconds                = 60
   $gc_log_enabled                      = false
   $jmx_port                            = 9999
   $classpath                           = false
