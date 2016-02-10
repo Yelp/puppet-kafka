@@ -25,8 +25,8 @@ class kafka::server(
 
   validate_bool($enable)
 
-  if !is_integer($broker_id) or $broker_id < 0 or $broker_id > 2147483647 {
-    fail('broker_id must be an integer between 0 and 2147483647')
+  if !is_integer($broker_id) or $broker_id < -1 or $broker_id > 2147483647 {
+    fail('broker_id must be an integer between 0 and 2147483647, or -1 for auto broker id')
   }
 
   validate_array($log_dirs)
