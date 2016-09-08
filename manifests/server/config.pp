@@ -24,6 +24,14 @@ class kafka::server::config {
     content => template('kafka/server.properties.erb'),
   }
 
+  file { '/etc/profile.d/kafka_env.sh':
+    ensure  => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0444',
+    content => template('kafka/kafka_env.sh.erb'),
+  }
+
   file { $kafka::server::log_dirs:
     ensure  => 'directory',
     owner   => 'kafka',
