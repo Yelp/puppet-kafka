@@ -1,17 +1,17 @@
 class kafka::install {
   if $kafka::version == '0.9.0.2' {
-    package { 'kafka':
-      ensure => $kafka::version,
-    }
     package { 'confluent-kafka':
       ensure => 'absent',
+    } ->
+    package { 'kafka':
+      ensure => $kafka::version,
     }
   } else{
-    package { 'confluent-kafka':
-      ensure => $kafka::version,
-    }
     package { 'kafka':
       ensure => 'absent',
+    } ->
+    package { 'confluent-kafka':
+      ensure => $kafka::version,
     }
   }
 }
