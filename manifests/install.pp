@@ -3,9 +3,15 @@ class kafka::install {
     package { 'kafka':
       ensure => $kafka::version,
     }
+    package { 'confluent-kafka':
+      ensure => 'absent',
+    }
   } else{
     package { 'confluent-kafka':
       ensure => $kafka::version,
+    }
+    package { 'kafka':
+      ensure => 'absent',
     }
   }
 }
