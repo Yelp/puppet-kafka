@@ -6,6 +6,7 @@ class kafka::server(
   $broker_id                           = $kafka::server::params::broker_id,
   $log_dirs                            = $kafka::server::params::log_dirs,
   $zookeeper_connect                   = $kafka::server::params::zookeeper_connect,
+  $broker_rack                         = $kafka::server::params::broker_rack,
 
   # Other Kafka configuration
   $server_properties                   = $kafka::server::params::server_properties,
@@ -37,6 +38,10 @@ class kafka::server(
   validate_string($zookeeper_connect)
   if empty($zookeeper_connect) {
     fail('zookeeper_connect must not be empty')
+  }
+
+  if $broker_rack {
+    validate_string($broker_rack)
   }
 
   validate_hash($server_properties)
