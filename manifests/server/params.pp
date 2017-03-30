@@ -7,6 +7,7 @@ class kafka::server::params {
   $log_dirs                            = ['/var/spool/kafka']
   $zookeeper_connect                   = false
   $broker_rack			       = false
+  $is_broker_rack_aware                = false
 
   # Other Kafka configuration
   $server_properties                   = {}

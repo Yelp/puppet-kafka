@@ -7,6 +7,7 @@ class kafka::server(
   $log_dirs                            = $kafka::server::params::log_dirs,
   $zookeeper_connect                   = $kafka::server::params::zookeeper_connect,
   $broker_rack                         = $kafka::server::params::broker_rack,
+  $is_broker_rack_aware                = $kafka::server::params::is_broker_rack_aware,
 
   # Other Kafka configuration
   $server_properties                   = $kafka::server::params::server_properties,

@@ -2,8 +2,10 @@
 
 broker.id=<%= scope.lookupvar('kafka::server::broker_id') %>
 log.dirs=<%= Array(scope.lookupvar('kafka::server::log_dirs')).join(',') %>
-zookeeper.connect=<%= scope.lookupvar('kafka::server::zookeeper_connect') %>
+zookeeper.connect=<%= scope.lookupvar('kafka::server::zookeeper_connect') -%>
+<%- if scope.lookupvar('kafka::server::is_broker_rack_aware') -%>
 broker.rack=<%= scope.lookupvar('kafka::server::broker_rack') %>
+<%- end %>
 
 <% server_properties = scope.lookupvar('kafka::server::server_properties')
    server_properties.keys.sort.each do |key| -%>
