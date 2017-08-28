@@ -1,5 +1,5 @@
 class kafka::install {
-  if $kafka::version in ['0.9.0.2', '0.10.2.2-yelp1'] {
+  if $kafka::version in ['0.10.2.2-yelp1'] {
     package { 'confluent-kafka':
       ensure => 'absent',
     } ->
