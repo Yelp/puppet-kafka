@@ -1,11 +1,20 @@
 class kafka::server::config {
 
-  file { '/etc/init/kafka.conf':
-    ensure => 'file',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0444',
-    content => template('kafka/kafka.conf.erb'),
+  if $::lsbdistcodename == 'trusty' {
+    file { '/etc/init/kafka.conf':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0444',
+      content => template('kafka/kafka.conf.erb'),
+    }
+  } else {
+    systemd::unit_file { 'secor.service':
+      source => 'puppet:///modules/kafka/kafka.service',
+    }
+    file { $upstart_file:
+      ensure => 'absent',
+    }
   }
 
   file { '/etc/default/kafka':
