@@ -9,6 +9,13 @@ class kafka::server::config {
       content => template('kafka/kafka.conf.erb'),
     }
   } else {
+    file { '/etc/init/pre-start.sh':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0444',
+      content => template('kafka/pre-start.sh.erb'),
+    }
     systemd::unit_file { 'kafka.service':
       content   => template('kafka/kafka.service.erb'),
     }
