@@ -9,8 +9,8 @@ class kafka::server::config {
       content => template('kafka/kafka.conf.erb'),
     }
   } else {
-    systemd::unit_file { 'secor.service':
-      source => 'puppet:///modules/kafka/kafka.service',
+    systemd::unit_file { 'kafka.service':
+      content   => template('kafka/kafka.service.erb'),
     }
     file { $upstart_file:
       ensure => 'absent',
