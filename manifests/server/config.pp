@@ -14,7 +14,7 @@ class kafka::server::config {
       ensure => 'file',
       owner  => 'root',
       group  => 'root',
-      mode   => '0444',
+      mode   => '0544',
       content => file('kafka/pre-start.sh'),
     }
     systemd::unit_file { 'kafka.service':
