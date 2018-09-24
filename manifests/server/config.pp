@@ -1,7 +1,8 @@
 class kafka::server::config {
+   $upstart_file   = '/etc/init/kafka.conf'
 
   if $::lsbdistcodename == 'trusty' {
-    file { '/etc/init/kafka.conf':
+    file { $upstart_file:
       ensure => 'file',
       owner  => 'root',
       group  => 'root',
@@ -14,7 +15,7 @@ class kafka::server::config {
       owner  => 'root',
       group  => 'root',
       mode   => '0444',
-      content => template('kafka/pre-start.sh.erb'),
+      content => file('kafka/pre-start.sh'),
     }
     systemd::unit_file { 'kafka.service':
       content   => template('kafka/kafka.service.erb'),
