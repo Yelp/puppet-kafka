@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Script to run before starting kafka
 
 if [ "$ENABLED" != "yes" ]; then
