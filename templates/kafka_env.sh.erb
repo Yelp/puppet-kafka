@@ -6,3 +6,4 @@ fi
 
 export JAVA_HOME="<%= scope.lookupvar('kafka::server::java_home') %>"
 export ZOOKEEPER="<%= scope.lookupvar('kafka::server::zookeeper_connect') %>"
+export BOOTSTRAP=localhost:9092
