@@ -10,7 +10,7 @@ class kafka::server::config {
       content => template('kafka/kafka.conf.erb'),
     }
   } else {
-    file { '/etc/init/pre-start.sh':
+    file { '/etc/kafka/pre-start.sh':
       ensure => 'file',
       owner  => 'root',
       group  => 'root',

@@ -18,7 +18,7 @@ Environment=KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:<%= scope.lookupvar('kaf
 EnvironmentFile=/etc/default/kafka
 User=kafka
 Group=kafka
-ExecStartPre=/bin/sh -c pre-start.sh
+ExecStartPre=/bin/sh -c /etc/kafka/pre-start.sh
 ExecStart=/usr/bin/kafka-server-start /etc/kafka/server.properties
 
 [Install]
