@@ -1,0 +1,24 @@
+[Unit]
+Description=publish-subscribe messaging rethought as a distributed commit log
+
+[Service]
+Type=simple
+TimeoutStopSec=<%= scope.lookupvar('kafka::server::kill_timeout_seconds') %>
+
+Environment=ENABLED=no
+Environment=JAVA_HOME=
+Environment=KAFKA_HEAP_OPTS=
+Environment=GC_LOG_ENABLED=
+Environment=JMX_PORT=
+Environment=CLASSPATH=
+Environment=LOG_DIR=
+Environment=CLASSPATH=
+Environment=KAFKA_JVM_PERFORMANCE_OPTS=
+Environment=KAFKA_LOG4J_OPTS=
+EnvironmentFile=/etc/default/kafka
+User=kafka
+Group=kafka
+ExecStart=/bin/sh -c /etc/kafka/start.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Script to start Kafka
+
+if [ "$ENABLED" != "yes" ]; then
+    echo >&2 "\$ENABLED not set to 'yes' in /etc/default/kafka; not starting"
+    exit 0
+else
+    export JAVA_HOME KAFKA_HEAP_OPTS GC_LOG_ENABLED JMX_PORT CLASSPATH LOG_DIR KAFKA_JVM_PERFORMANCE_OPTS
+
+    # kafka-server-start fails to export KAFKA_LOG4J_OPTS
+    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:<%= scope.lookupvar('kafka::server::kafka_log4j_config') %>"
+
+    /usr/bin/kafka-server-start /etc/kafka/server.properties
+fi
