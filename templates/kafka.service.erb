@@ -14,12 +14,11 @@ Environment=CLASSPATH=
 Environment=LOG_DIR=
 Environment=CLASSPATH=
 Environment=KAFKA_JVM_PERFORMANCE_OPTS=
-Environment=KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:<%= scope.lookupvar('kafka::server::kafka_log4j_config') %>
+Environment=KAFKA_LOG4J_OPTS=
 EnvironmentFile=/etc/default/kafka
 User=kafka
 Group=kafka
-ExecStartPre=/bin/sh -c /etc/kafka/pre-start.sh
-ExecStart=/usr/bin/kafka-server-start /etc/kafka/server.properties
+ExecStart=/bin/sh -c /etc/kafka/start.sh
 
 [Install]
 WantedBy=multi-user.target
