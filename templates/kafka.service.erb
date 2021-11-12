@@ -19,7 +19,7 @@ EnvironmentFile=/etc/default/kafka
 User=kafka
 Group=kafka
 ExecStart=/bin/sh -c /etc/kafka/start.sh
-LimitNOFILE=65535
+LimitNOFILE=1048576
 
 [Install]
 WantedBy=multi-user.target
